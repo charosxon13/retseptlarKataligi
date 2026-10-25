@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    
+    <!-- Chap tomondagi filtr bo'limi -->
+    <div class="col-md-3 mb-4">
+        <h5 class="fw-bold mb-3">Kategoriyalar</h5>
+        <div class="d-flex flex-column gap-2">
+            <a href="{% url 'index' %}" class="category-btn active">Hammasi</a>
+            {% for category in categories %}
+                <a href="#" class="category-btn">{{ category.name }}</a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- O'ng tomondagi retseptlar ro'yxati -->
+    <div class="col-md-9">
+        <h3 class="fw-bold mb-4">Retseptlar ro'yxati</h3>
+        <div class="row">
+            {% for recipe in recipes %}
+                <div class="col-md-4 mb-4">
+                    <div class="recipe-card p-2">
+                        <a href="{% url 'detail' recipe.pk %}" class="text-decoration-none">
+                            {% if recipe.image %}
+                                <img src="{{ recipe.image.url }}" class="w-100 rounded-3" style="height: 180px; object-fit: cover;" alt="{{ recipe.title }}">
+                            
+                                <div class="bg-light rounded-3 d-flex align-items-center justify-content-center" style="height: 180px; color: #aaa;">
+                                   
+                                </div>
+                            {% endif %}
+                            <div class="recipe-title">{{ recipe.title }}</div>
+                        </a>
+                        <small class="text-muted d-block mt-1">📁 {{ recipe.category.name }}</small>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="col-12 text-center py-5">
+                    <p class="text-muted">Hozircha hech qanday retsept qo'shilmagan.</p>
+                    <p class="text-muted">Iltimos, avval <b>Admin Panel</b>ga kirib Kategoriya, Masalliq va Retseptlar qo'shing!</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row">
+        <!-- Taom rasmi -->
+        <div class="col-md-6">
+            {% if recipe.image %}
+                <img src="{{ recipe.image.url }}" class="img-fluid rounded shadow" alt="{{ recipe.title }}" style="width: 100%; max-height: 400px; object-fit: cover;">
+            {% else %}
+                <div class="bg-secondary text-white d-flex align-items-center justify-content-center rounded shadow" style="height: 400px;">
+                    <h3>Rasm yuklanmagan</h3>
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Taom haqida ma'lumotlar -->
+        <div class="col-md-6">
+            <h1 class="display-5 font-weight-bold">{{ recipe.title }}</h1>
+            <p class="badge bg-info text-dark p-2">{{ recipe.category.name }}</p>
+            <hr>
+            
+            <h4 class="mt-4">Zaruriy masalliqlar:</h4>
+            <ul>
+                {% for ingredient in recipe.ingredients.all %}
+                    <li><h5>{{ ingredient.name }}</h5></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <!-- Tayyorlash bosqichlari -->
+    <div class="row mt-5">
+        <div class="col-11">
+            <h3>Tayyorlanish bosqichlari:</h3>
+            <div class="p-4 bg-light rounded shadow-sm">
+                <p style="font-size: 1.2rem; line-height: 1.8;">{{ recipe.instructions|linebreaks }}</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="mt-4">
+        <a href="{% url 'index' %}" class="btn btn-secondary">← Orqaga qaytish</a>
+    </div>
+</div>
+{% endblock %}

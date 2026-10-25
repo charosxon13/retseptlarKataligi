@@ -1,0 +1,60 @@
+/* Основные стили для сайта рецептов */
+body {
+    background: #fdfbf7; /* Мягкий кремовый фон */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Красивая навигационная панель */
+.navbar {
+    background: linear-gradient(135deg, #2c3e50, #1a252f) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-size: 1.4rem;
+    letter-spacing: 0.5px;
+}
+
+/* Стили для карточек рецептов */
+.recipe-card {
+    border: none;
+    border-radius: 15px;
+    background: #ffffff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.recipe-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(255, 87, 34, 0.15);
+}
+
+.card-title {
+    color: #2c3e50;
+    font-size: 1.25rem;
+}
+
+/* Кнопки */
+.btn-outline-primary {
+    color: #ff5722;
+    border-color: #ff5722;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.btn-outline-primary:hover {
+    background-color: #ff5722;
+    border-color: #ff5722;
+    color: #fff;
+}
+
+/* Декоративные блоки в детальной странице */
+.ingredients-block {
+    background-color: #fff9f5;
+    border-left: 5px solid #ff5722 !important;
+    border-radius: 4px;
+}
+
+h1, h2, h3, h4 {
+    color: #2c3e50;
+}
