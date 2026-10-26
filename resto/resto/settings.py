@@ -29,17 +29,15 @@ ALLOWED_HOSTS = ['*']
 
 
 # Application definition
-
 INSTALLED_APPS = [
-    'jazzmin',
+    'jazzmin',  # Eng birinchi qatorga qo'ying!
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'restoapp',
-    'django_bootstrap5',
+    'django.contrib.staticfiles',  # Bu o'zi joyida qoladi
+    # ... sizning boshqa app'laringiz (restoapp va hokazo)
 ]
 
 
