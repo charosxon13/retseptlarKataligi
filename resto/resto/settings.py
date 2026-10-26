@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/6.1/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -42,9 +42,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # AYNAN SHU QATORNI QO'SHING
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -130,21 +127,9 @@ MAILERS = {
     },
 }
 
-import os
-from pathlib import Path
 
-# Agar faylning eng tepasida BASE_DIR allaqachon mavjud bo'lsa, uni qayta yozish shart emas
-BASE_DIR = Path(__file__).resolve().parent.parent
 
 STATIC_URL = '/static/'
-
-# Render uchun eng muhim sozlamalar:
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# Agar loyihangiz ichida maxsus static papkasi bo'lsa:
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
-
-# Statik fayllarni Renderda muammosiz siqish va saqlash uchun (Whitenoise sozlamasi):
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
