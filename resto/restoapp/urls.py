@@ -5,5 +5,3 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('recipe/<int:pk>/', views.detail, name='detail'),
 ]
-
-

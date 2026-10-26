@@ -1,60 +1,236 @@
-/* Основные стили для сайта рецептов */
-body {
-    background: #fdfbf7; /* Мягкий кремовый фон */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+/* ==============================
+   1. ORQAGA QAYTISH
+============================== */
+
+.container > .mb-4 a {
+    color: #777 !important;
+    font-size: 15px;
+    transition: 0.25s;
 }
 
-/* Красивая навигационная панель */
-.navbar {
-    background: linear-gradient(135deg, #2c3e50, #1a252f) !important;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+.container > .mb-4 a:hover {
+    color: #ff4d4d !important;
+    transform: translateX(-3px);
 }
 
-.navbar-brand {
-    font-size: 1.4rem;
-    letter-spacing: 0.5px;
+/* ==============================
+   2. TAOM RASMI
+============================== */
+
+.position-relative.overflow-hidden.rounded-4 {
+    border: 1px solid #f1e4e4 !important;
+    border-radius: 20px !important;
+    background: #fff;
+    padding: 10px !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    transition: 0.3s ease;
 }
 
-/* Стили для карточек рецептов */
-.recipe-card {
-    border: none;
-    border-radius: 15px;
-    background: #ffffff;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
+.position-relative.overflow-hidden.rounded-4:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 35px rgba(255, 77, 77, 0.12);
 }
 
-.recipe-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(255, 87, 34, 0.15);
+.position-relative img {
+    display: block;
+    width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 14px !important;
+    transition: transform 0.4s ease;
 }
 
-.card-title {
-    color: #2c3e50;
-    font-size: 1.25rem;
+.position-relative:hover img {
+    transform: scale(1.02);
 }
 
-/* Кнопки */
-.btn-outline-primary {
-    color: #ff5722;
-    border-color: #ff5722;
-    border-radius: 8px;
-    font-weight: 500;
+.bg-secondary-subtle {
+    min-height: 350px;
+    border-radius: 14px !important;
 }
 
-.btn-outline-primary:hover {
-    background-color: #ff5722;
-    border-color: #ff5722;
-    color: #fff;
+/* ==============================
+   3. KATEGORIYA BELGISI
+============================== */
+
+.badge.bg-danger {
+    background: #fff0f0 !important;
+    color: #ff4d4d !important;
+    border: 1px solid #ffdada;
+    font-size: 13px !important;
+    letter-spacing: 0.3px;
 }
 
-/* Декоративные блоки в детальной странице */
-.ingredients-block {
-    background-color: #fff9f5;
-    border-left: 5px solid #ff5722 !important;
-    border-radius: 4px;
+/* ==============================
+   4. TAOM NOMI VA TAVSIFI
+============================== */
+
+h1.display-6 {
+    color: #242424 !important;
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: -0.7px;
 }
 
-h1, h2, h3, h4 {
-    color: #2c3e50;
+.ps-md-3 {
+    padding-top: 8px;
+}
+
+.ps-md-3 > p {
+    color: #777 !important;
+    font-size: 16px !important;
+    line-height: 1.9;
+}
+
+hr {
+    border-color: #e9dede;
+    opacity: 0.8;
+}
+
+/* ==============================
+   5. MASALLIQLAR
+============================== */
+
+h4 {
+    font-size: 22px;
+    font-weight: 750;
+}
+
+.row .col-sm-6 .p-2 {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    min-height: 48px;
+    background: #fff !important;
+    border: 1px solid #f3eaea;
+    border-left: 4px solid #ff4d4d !important;
+    border-radius: 10px !important;
+    transition: 0.25s ease;
+}
+
+.row .col-sm-6 .p-2:hover {
+    background: #fff5f5 !important;
+    border-color: #ffd6d6;
+    transform: translateX(4px);
+    box-shadow: 0 5px 15px rgba(255, 77, 77, 0.08);
+}
+
+.row .col-sm-6 .p-2 .text-danger {
+    color: #ff4d4d !important;
+    font-size: 18px;
+}
+
+.row .col-sm-6 .p-2 .text-secondary {
+    color: #555 !important;
+    font-size: 14px;
+}
+
+/* ==============================
+   6. TAYYORLASH BOSQICHLARI
+============================== */
+
+.container > .row.mt-5 .p-4 {
+    background: #fff !important;
+    border: 1px solid #f2e6e6;
+    border-left: 5px solid #ff4d4d !important;
+    border-radius: 14px !important;
+    padding: 28px !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.3s ease;
+}
+
+.container > .row.mt-5 .p-4:hover {
+    box-shadow: 0 12px 30px rgba(255, 77, 77, 0.09);
+}
+
+.container > .row.mt-5 .p-4 p {
+    color: #555 !important;
+    font-size: 16px !important;
+    line-height: 2 !important;
+    white-space: pre-line;
+}
+
+/* ==============================
+   7. PLANSHTET
+============================== */
+
+@media (max-width: 991px) {
+    h1.display-6 {
+        font-size: 30px;
+    }
+
+    .position-relative img {
+        max-height: 360px;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+}
+
+/* ==============================
+   8. TELEFON
+============================== */
+
+@media (max-width: 767px) {
+    .container.py-4 {
+        padding-top: 16px !important;
+        padding-bottom: 16px !important;
+    }
+
+    .position-relative img {
+        height: 280px;
+    }
+
+    .ps-md-3 {
+        padding-left: 0 !important;
+        padding-top: 10px;
+    }
+
+    h1.display-6 {
+        font-size: 28px;
+        margin-bottom: 14px !important;
+    }
+
+    .ps-md-3 > p {
+        font-size: 15px !important;
+        line-height: 1.8;
+    }
+
+    h4 {
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 23px;
+    }
+
+    .container > .row.mt-5 .p-4 {
+        padding: 18px !important;
+    }
+
+    .container > .row.mt-5 .p-4 p {
+        font-size: 15px !important;
+        line-height: 1.8 !important;
+    }
+
+    .row.mt-5 {
+        margin-top: 32px !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .position-relative img {
+        height: 230px;
+    }
+
+    h1.display-6 {
+        font-size: 24px;
+    }
+
+    .badge.bg-danger {
+        font-size: 12px !important;
+    }
 }

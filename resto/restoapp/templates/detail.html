@@ -1,46 +1,61 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container py-4">
-    <div class="row">
-        <!-- Taom rasmi -->
-        <div class="col-md-6">
-            {% if recipe.image %}
-                <img src="{{ recipe.image.url }}" class="img-fluid rounded shadow" alt="{{ recipe.title }}" style="width: 100%; max-height: 400px; object-fit: cover;">
-            {% else %}
-                <div class="bg-secondary text-white d-flex align-items-center justify-content-center rounded shadow" style="height: 400px;">
-                    <h3>Rasm yuklanmagan</h3>
-                </div>
-            {% endif %}
-        </div>
-
-        <!-- Taom haqida ma'lumotlar -->
-        <div class="col-md-6">
-            <h1 class="display-5 font-weight-bold">{{ recipe.title }}</h1>
-            <p class="badge bg-info text-dark p-2">{{ recipe.category.name }}</p>
-            <hr>
-            
-            <h4 class="mt-4">Zaruriy masalliqlar:</h4>
-            <ul>
-                {% for ingredient in recipe.ingredients.all %}
-                    <li><h5>{{ ingredient.name }}</h5></li>
-                {% endfor %}
-            </ul>
-        </div>
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold text-dark"><i class="bi bi-speedometer2 me-2"></i>Boshqaruv paneli</h2>
+        <a href="{% url 'admin_recipe_create' %}" class="btn btn-success shadow-sm">
+            <i class="bi bi-plus-circle me-2"></i>Yangi retsept qo'shish
+        </a>
     </div>
 
-    <!-- Tayyorlash bosqichlari -->
-    <div class="row mt-5">
-        <div class="col-11">
-            <h3>Tayyorlanish bosqichlari:</h3>
-            <div class="p-4 bg-light rounded shadow-sm">
-                <p style="font-size: 1.2rem; line-height: 1.8;">{{ recipe.instructions|linebreaks }}</p>
+    <div class="card shadow-sm border-0 rounded-3">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-dark">
+                        <tr>
+                            <th class="ps-4">Rasm</th>
+                            <th>Taom nomi</th>
+                            <th>Kategoriya</th>
+                            <th>Qo'shilgan sana</th>
+                            <th class="text-end pe-4">Amallar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for recipe in recipes %}
+                        <tr>
+                            <td class="ps-4">
+                                {% if recipe.image %}
+                                    <img src="{{ recipe.image.url }}" class="rounded shadow-sm" style="width: 60px; height: 45px; object-fit: cover;">
+                                {% else %}
+                                    <span class="badge bg-secondary">Rasm yo'q</span>
+                                {% endif %}
+                            </td>
+                            <td><strong class="text-dark">{{ recipe.title }}</strong></td>
+                            <td><span class="badge bg-light text-dark border">{{ recipe.category.name }}</span></td>
+                            <td class="text-muted">{{ recipe.created_at|date:"d.m.Y, H:i" }}</td>
+                            <td class="text-end pe-4">
+                                <a href="{% url 'admin_recipe_update' recipe.pk %}" class="btn btn-sm btn-outline-primary me-1">
+                                    <i class="bi bi-pencil"></i> Tahrirlash
+                                </a>
+                                <a href="{% url 'admin_recipe_delete' recipe.pk %}" class="btn btn-sm btn-outline-danger">
+                                    <i class="bi bi-trash"></i> O'chirish
+                                </a>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="5" class="text-center py-5 text-muted">
+                                <i class="bi bi-folder-x fs-1 d-block mb-2"></i>
+                                Hozircha hech qanday retsept qo'shilmagan.
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
-    </div>
-    
-    <div class="mt-4">
-        <a href="{% url 'index' %}" class="btn btn-secondary">← Orqaga qaytish</a>
     </div>
 </div>
 {% endblock %}
