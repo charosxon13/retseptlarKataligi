@@ -36,7 +36,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',  # Bu o'zi joyida qoladi
+    'django.contrib.staticfiles',
+    'restoapp',
+    # Bu o'zi joyida qoladi
     # ... sizning boshqa app'laringiz (restoapp va hokazo)
 ]
 
